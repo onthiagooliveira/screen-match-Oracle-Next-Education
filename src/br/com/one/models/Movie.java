@@ -1,8 +1,8 @@
 package br.com.one.models;
 
-public class Film {
+public class Movie {
     private String title;
-    private String sinopse;
+    private String synopsis;
     private double durationInMinutes;
     private int yearOfRelease;
     private String category;
@@ -14,8 +14,8 @@ public class Film {
         return title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSynopsis() {
+        return synopsis;
     }
 
     public double getDurationInMinutes() {
@@ -42,8 +42,8 @@ public class Film {
         this.title = title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 
     public void setDurationInMinutes(double durationInMinutes) {
@@ -64,7 +64,7 @@ public class Film {
 
     public void displayData() {
         System.out.printf("Título : %s \n", title);
-        System.out.printf("Descrição: %s \n", description);
+        System.out.printf("Synopsis: %s \n", synopsis);
         System.out.printf("Duração: %.2f min \n", durationInMinutes);
         System.out.printf("Ano de Lançamento: %d \n", yearOfRelease);
         System.out.printf("Gênero: %s \n", category);
