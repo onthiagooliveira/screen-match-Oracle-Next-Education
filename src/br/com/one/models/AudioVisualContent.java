@@ -3,13 +3,16 @@ package br.com.one.models;
 public class AudioVisualContent {
     private String title;
     private String synopsis;
-    private double durationInMinutes;
-    private int yearOfRelease;
     private String category;
-    private int indicativeClassification;
+
+    private double durationInHours;
     private double evaluationGrade;
+
+    private int yearOfRelease;
+    private int selfClassification;
     private int numberOfReviews;
 
+    // Getters
     public String getTitle() {
         return title;
     }
@@ -18,8 +21,8 @@ public class AudioVisualContent {
         return synopsis;
     }
 
-    public double getDurationInMinutes() {
-        return durationInMinutes;
+    public double getDurationInHours() {
+        return durationInHours;
     }
 
     public int getYearOfRelease() {
@@ -30,14 +33,15 @@ public class AudioVisualContent {
         return category;
     }
 
-    public int getIndicativeClassification() {
-        return indicativeClassification;
+    public int getSelfClassification() {
+        return selfClassification;
     }
 
     public int getNumberOfReviews() {
         return numberOfReviews;
     }
 
+    // Setters
     public void setTitle(String title) {
         this.title = title;
     }
@@ -46,8 +50,8 @@ public class AudioVisualContent {
         this.synopsis = synopsis;
     }
 
-    public void setDurationInMinutes(double durationInMinutes) {
-        this.durationInMinutes = durationInMinutes / 60;
+    public void setDurationInHours(double durationInHours) {
+        this.durationInHours = durationInHours / 60;
     }
 
     public void setYearOfRelease(int yearOfRelease) {
@@ -58,25 +62,29 @@ public class AudioVisualContent {
         this.category = category;
     }
 
-    public void setIndicativeClassification(int indicativeClassification) {
-        this.indicativeClassification = indicativeClassification;
+    public void setSelfClassification(int selfClassification) {
+        this.selfClassification = selfClassification;
     }
 
+    // Displays technical data sheet
     public void displayData() {
-        System.out.printf("Título : %s \n", title);
-        System.out.printf("Synopsis: %s \n", synopsis);
-        System.out.printf("Duração: %.2f min \n", durationInMinutes);
-        System.out.printf("Ano de Lançamento: %d \n", yearOfRelease);
-        System.out.printf("Gênero: %s \n", category);
-        System.out.printf("Classificação: %d anos \n", indicativeClassification);
+        System.out.printf("""
+                Título : %s
+                Synopsis: %s
+                Duração: %.1f min
+                Ano: %d
+                Gênero: %s
+                Classificação indicativa: %d
+                """, title, synopsis, durationInHours, yearOfRelease, category, selfClassification);
     }
 
-    public void evaluatesFilm(double nota) {
+    // Evaluates content audio visual
+    public void evaluatesContentAudioVisual(double nota) {
         evaluationGrade += nota;
         numberOfReviews++;
     }
 
-    public double finalAverage(){
+    public double finalAverage() {
         return evaluationGrade / numberOfReviews;
     }
 }
