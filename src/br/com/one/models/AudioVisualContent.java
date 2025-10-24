@@ -71,11 +71,10 @@ public class AudioVisualContent {
         System.out.printf("""
                 Título : %s
                 Synopsis: %s
-                Duração: %.1f min
                 Ano: %d
                 Gênero: %s
                 Classificação indicativa: %d
-                """, title, synopsis, durationInHours, yearOfRelease, category, selfClassification);
+                """, title, synopsis, yearOfRelease, category, selfClassification);
     }
 
     // Evaluates content audio visual
