@@ -1,7 +1,11 @@
 package br.com.one.models;
 
-public class Episode {
+import br.com.one.calculator.Rating;
+
+public class Episode extends Series implements Rating {
     private int episodeNumber;
+    private int totalViews;
+
     private String episodeName;
     private Series seriesThatBelongs;
 
@@ -18,9 +22,11 @@ public class Episode {
         return seriesThatBelongs;
     }
 
+    public int getTotalViews() {
+        return totalViews;
+    }
+
     // Setters
-
-
     public void setEpisodeNumber(int episodeNumber) {
         this.episodeNumber = episodeNumber;
     }
@@ -31,5 +37,18 @@ public class Episode {
 
     public void setSeriesThatBelongs(Series seriesThatBelongs) {
         this.seriesThatBelongs = seriesThatBelongs;
+    }
+
+    public void setTotalViews(int totalViews) {
+        this.totalViews = totalViews;
+    }
+
+    @Override
+    public int getRating() {
+        if (totalViews > 100) {
+            return 4;
+        } else {
+            return 2;
+        }
     }
 }

@@ -1,5 +1,7 @@
 package br.com.one.models;
 
+import br.com.one.calculator.Rating;
+
 public class AudioVisualContent {
     private String title;
     private String synopsis;
@@ -86,4 +88,5 @@ public class AudioVisualContent {
     public double finalAverage() {
         return evaluationGrade / numberOfReviews;
     }
+
 }
