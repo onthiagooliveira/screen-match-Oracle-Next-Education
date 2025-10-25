@@ -1,53 +1,66 @@
+import br.com.one.calculator.RecommendationFilter;
+import br.com.one.calculator.TotalMediaTime;
 import br.com.one.models.AudioVisualContent;
+import br.com.one.models.Episode;
+import br.com.one.models.Movie;
 import br.com.one.models.Series;
 
 public class Main {
     public static void main(String[] args) {
 
-        AudioVisualContent audVisualContent = new AudioVisualContent();
-        audVisualContent.setTitle("Gran Torino\n");
-        audVisualContent.setSynopsis("""
-                Walt, um veterano viúvo da Guerra da Coreia enfrenta seus próprios preconceitos enquanto protege seu
-                Gran Torino 1972 e seus vizinhos imigrantes asiáticos de uma gangue.
-                """);
-        audVisualContent.setDurationInHours(93.6);
-        audVisualContent.setYearOfRelease(2008);
-        audVisualContent.setCategory("Drama");
-        audVisualContent.setSelfClassification(14);
+        // Instancia um filme
+        Movie granTorino = new Movie();
+        granTorino.setTitle("Gran Torino");
+        granTorino.setSynopsis("""
+                Walt, um veterano viúvo da Guerra da Coreia enfrenta seus próprios preconceitos enquanto protege seu Gran
+                Torino 1972 e seus vizinhos imigrantes asiáticos de uma gangue.""");
+        granTorino.setDurationInHours(93.6);
+        granTorino.setYearOfRelease(2008);
+        granTorino.setCategory("Drama");
+        granTorino.setSelfClassification(14);
 
-        audVisualContent.displayData();
+        // Avaliando o filme
+        granTorino.evaluatesContentAudioVisual(7.5);
+        granTorino.evaluatesContentAudioVisual(8.9);
 
-        audVisualContent.evaluatesContentAudioVisual(9.1);
-        audVisualContent.evaluatesContentAudioVisual(8.7);
+        // Exibindo os dados
+        granTorino.displayData();
+        System.out.printf("Duração: %.2f min\n", granTorino.getDurationInHours());
+        System.out.printf("Avaliação: %.1f\n", granTorino.finalAverage());
+        System.out.printf("Número de avaliações: %d\n", granTorino.getNumberOfReviews());
+
+        // Instancia uma série
+        Series theOffice = new Series();
+        theOffice.setTitle("The Office");
+        theOffice.setSynopsis("""
+                Esta série hilária retrata o cotidiano caótico de funcionários insatisfeitos e um chefe sem noção.""");
+        theOffice.setYearOfRelease(2005);
+        theOffice.setCategory("Comédia");
+        theOffice.setSelfClassification(12);
+        theOffice.setSeasons(9);
+        theOffice.setEpisodesPerSeason(8);
+        theOffice.setEpisodeDuration(21);
+
+        // Avaliando the Office
+        theOffice.evaluatesContentAudioVisual(8.1);
+        theOffice.evaluatesContentAudioVisual(8.3);
+        theOffice.evaluatesContentAudioVisual(7.7);
+
+        // Exibindo os dados
+        theOffice.displayData();
+        System.out.printf("tempo para maratonar: %.2f min\n", theOffice.getDurationInHours());
+        System.out.printf("Avaliação: %.1f\n", theOffice.finalAverage());
+        System.out.printf("Número de avaliações: %d\n", theOffice.getNumberOfReviews());
 
 
-        System.out.printf("Nota: %.1f \n", audVisualContent.finalAverage());
-        System.out.printf("Avaliações: %d \n", audVisualContent.getNumberOfReviews());
+        // Verificando filtragem
+        RecommendationFilter filtro = new RecommendationFilter();
+        filtro.filter(granTorino);
 
-        Series serie = new Series();
-        audVisualContent.setTitle("Gotham");
-        audVisualContent.setSynopsis("""
-                Antes de Batman, a cidade de Gotham já existia. James Gordon (Ben McKenzie) é um detetive iniciante 
-                polícia. Corajoso, sincero e ansioso para mostrar serviço, o recém-promovido tem como missão solucionar
-                o caso do assassinato dos bilionários Thomas e Martha Wayne, um dos casos mais complexos da cidade. Com
-                seu parceiro, o oficial Harvey Bullock (Donal Logue), Gordon conhece o único sobrevivente do assassinato:
-                Bruce (David Mazuouz), um garoto de 12 anos, filho do casal, por quem ele imediatamente sente uma grande
-                afeição.
-                """);
-        audVisualContent.setYearOfRelease(2014);
-        audVisualContent.setCategory("Policial");
-        audVisualContent.setSelfClassification(14);
-        serie.setSeasons(4);
-        serie.setEpisodesPerSeason(4);
-        serie.setEpisodeDuration(22);
-
-        audVisualContent.evaluatesContentAudioVisual(8.9);
-        audVisualContent.displayData();
-        System.out.printf("Nota: %.1f\n", audVisualContent.finalAverage());
-        System.out.printf("Temporadas: %d\n", serie.getSeasons());
-        System.out.printf("Episódios: %d\n", serie.getEpisodesPerSeason());
-        System.out.printf("Tempo para maratonar: %.2f", serie.getDurationInHours());
-
-
+        Episode episodio = new Episode();
+        episodio.setEpisodeName("Dander Muffin");
+        episodio.setEpisodeNumber(1);
+        episodio.setTotalViews(60); // Lógica de ranking para séries = número de exibições dos episódios
+        filtro.filter(episodio);
     }
 }
