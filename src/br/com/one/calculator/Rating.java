@@ -1,7 +1,7 @@
 package br.com.one.calculator;
 
-public interface Classifiable {
+public interface Rating {
 
-    int getRating
+    int getRating();
 
 }
