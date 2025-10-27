@@ -1,9 +1,7 @@
 package br.com.one.models;
 
-import br.com.one.calculator.Rating;
-
 public class AudioVisualContent {
-    private String title;
+    private String titleMedia;
     private String synopsis;
     private String category;
 
@@ -15,8 +13,8 @@ public class AudioVisualContent {
     private int numberOfReviews;
 
     // Getters
-    public String getTitle() {
-        return title;
+    public String getTitleMedia() {
+        return titleMedia;
     }
 
     public String getSynopsis() {
@@ -44,8 +42,8 @@ public class AudioVisualContent {
     }
 
     // Setters
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitleMedia(String titleMedia) {
+        this.titleMedia = titleMedia;
     }
 
     public void setSynopsis(String synopsis) {
@@ -56,8 +54,8 @@ public class AudioVisualContent {
         this.durationInHours = durationInHours / 60;
     }
 
-    public void setYearOfRelease(int yearOfRelease) {
-        this.yearOfRelease = yearOfRelease;
+    public void setYearOfRelease(int year) {
+        this.yearOfRelease = year;
     }
 
     public void setCategory(String category) {
@@ -68,23 +66,49 @@ public class AudioVisualContent {
         this.selfClassification = selfClassification;
     }
 
-    // Displays technical data sheet
+    /**
+     * Exibe no console a ficha técnica completa do conteúdo audiovisual.
+     * Inclui título, sinopse, ano, gênero, classificação, duração e média de avaliações.
+     */
     public void displayData() {
         System.out.printf("""
-                Título : %s
-                Synopsis: %s
-                Ano: %d
-                Gênero: %s
-                Classificação indicativa: %d
-                """, title, synopsis, yearOfRelease, category, selfClassification);
+                        ================================
+                        Título                 : %s
+                        Sinopse                : %s
+                        Ano                    : %d
+                        Gênero                 : %s
+                        Classificação Indicativa: %d
+                        Duração (minutos)      : %.2f
+                        Média de avaliações    : %.1f
+                        Número de avaliações   : %d
+                        ================================
+                        """,
+                titleMedia,
+                synopsis,
+                yearOfRelease,
+                category,
+                selfClassification,
+                getDurationInHours(),
+                finalAverage(),
+                numberOfReviews
+        );
     }
 
-    // Evaluates content audio visual
+    /**
+     * Realiza a avaliação de um conteúdo audiovisual.
+     *
+     * @param nota nota de avaliação de um conteúdo
+     */
     public void evaluatesContentAudioVisual(double nota) {
         evaluationGrade += nota;
         numberOfReviews++;
     }
 
+    /**
+     * Realiza calculo de avaliação do conteúdo com base na nota e no número de visualizações.
+     *
+     * @return nota final de avaliação do conteúdo
+     */
     public double finalAverage() {
         return evaluationGrade / numberOfReviews;
     }
