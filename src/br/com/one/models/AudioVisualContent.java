@@ -1,5 +1,7 @@
 package br.com.one.models;
 
+import java.util.Collections;
+
 /**
  * Representa um conteúdo audiovisual, como filmes, séries ou documentários.
  * <p>
@@ -12,7 +14,7 @@ package br.com.one.models;
  * @version 1.0
  * @since 2025
  */
-public class AudioVisualContent {
+public class AudioVisualContent implements Comparable<AudioVisualContent> {
 
     /** Título do conteúdo audiovisual. */
     private String titleMedia;
@@ -212,4 +214,34 @@ public class AudioVisualContent {
     public double finalAverage() {
         return evaluationGrade / numberOfReviews;
     }
+
+
+    /**
+     * Compara este conteúdo audiovisual com outro, com base no título da mídia.
+     * <p>
+     * O método realiza a comparação lexicográfica (alfabética) entre os títulos,
+     * permitindo a ordenação natural de objetos {@link AudioVisualContent} em listas
+     * ou coleções ordenadas.
+     * </p>
+     *
+     * <p><b>Exemplo:</b></p>
+     * <pre>{@code
+     * List<AudioVisualContent> lista = new ArrayList<>();
+     * lista.add(new Movie("Batman", "...", 120, 2008, "Ação", 12));
+     * lista.add(new Movie("Avatar", "...", 180, 2009, "Ficção", 12));
+     *
+     * Collections.sort(lista); // Ordena alfabeticamente: Avatar, Batman
+     * }</pre>
+     *
+     * @param otherTitleMedia outro conteúdo audiovisual a ser comparado
+     * @return um valor negativo se este título for lexicograficamente menor;
+     *         zero se forem iguais;
+     *         um valor positivo se este título for maior
+     * @throws NullPointerException se {@code otherTitleMedia} ou seu título for {@code null}
+     */
+    @Override
+    public int compareTo(AudioVisualContent otherTitleMedia) {
+        return this.getTitleMedia().compareTo(otherTitleMedia.getTitleMedia());
+    }
+
 }

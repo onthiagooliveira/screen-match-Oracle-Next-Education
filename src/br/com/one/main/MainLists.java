@@ -5,6 +5,8 @@ import br.com.one.models.Movie;
 import br.com.one.models.Series;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Classe principal da aplicação para demonstrar o uso de listas de conteúdos audiovisuais.
@@ -102,6 +104,11 @@ public class MainLists {
         playList.add(theOffice);
 
         // =========================
+        // Organizando os conteúdos disponíveis
+        // =========================
+        Collections.sort(playList);
+
+        // =========================
         // Exibição dos conteúdos disponíveis
         // =========================
         System.out.println("🎬 Lista de conteúdos disponíveis:");
@@ -120,5 +127,6 @@ public class MainLists {
                 System.out.println("Número de temporadas: " + serie.getSeasons());
             }
         }
+
     }
 }
