@@ -84,4 +84,9 @@ public class Series extends AudioVisualContent {
     public double getDurationInHours() {
         return (double) (episodesPerSeason * episodeDuration * seasons) / 60;
     }
+
+    @Override
+    public String toString() {
+        return "Série: " + getTitleMedia() + " (" + getYearOfRelease() + ")";
+    }
 }
