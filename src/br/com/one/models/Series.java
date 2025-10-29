@@ -13,30 +13,29 @@ public class Series extends AudioVisualContent {
     /**
      * Cria uma instância de Series (série) com todos os atributos necessários.
      *
-     * @param title               título da série
-     * @param synopsis            sinopse da série
-     * @param year                ano de lançamento
-     * @param category            categoria/ gênero da série
-     * @param selfClassification  classificação indicativa da série
-     * @param seasons             número de temporadas
-     * @param episodesPerSeason   número de episódios por temporada
-     * @param episodeDuration     duração de cada episódio em minutos
-     * @param active              indica se a série está ativa/exibindo novos episódios
+     * @param title              título da série
+     * @param synopsis           sinopse da série
+     * @param year               ano de lançamento
+     * @param category           categoria/ gênero da série
+     * @param selfClassification classificação indicativa da série
+     * @param seasons            número de temporadas
+     * @param episodesPerSeason  número de episódios por temporada
+     * @param episodeDuration    duração de cada episódio em minutos
+     * @param active             indica se a série está ativa/exibindo novos episódios
      */
     public Series(String title, String synopsis, int year, String category, int selfClassification,
                   int seasons, int episodesPerSeason, int episodeDuration, boolean active) {
-        setTitleMedia(title);
-        setSynopsis(synopsis);
-        setYearOfRelease(year);
-        setCategory(category);
-        setSelfClassification(selfClassification);
-        setSeasons(seasons);
-        setEpisodesPerSeason(episodesPerSeason);
-        setEpisodeDuration(episodeDuration);
-        setActive(active);
+        super();
+        super.setTitleMedia(title);
+        super.setSynopsis(synopsis);
+        super.setYearOfRelease(year);
+        super.setCategory(category);
+        super.setSelfClassification(selfClassification);
+        this.seasons = seasons;
+        this.episodesPerSeason = episodesPerSeason;
+        this.episodeDuration = episodeDuration;
+        this.active = (boolean) active;
     }
-
-
 
     // ====================
     // Getters

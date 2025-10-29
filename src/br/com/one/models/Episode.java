@@ -15,10 +15,10 @@ public class Episode implements Rating {
     /**
      * Cria uma instância de Episode (episódio) associada a uma série.
      *
-     * @param episodeNumber   número do episódio na série
-     * @param episodeName     nome/título do episódio
-     * @param series          série à qual o episódio pertence
-     * @param totalViews      número total de visualizações do episódio
+     * @param episodeNumber número do episódio na série
+     * @param episodeName   nome/título do episódio
+     * @param series        série à qual o episódio pertence
+     * @param totalViews    número total de visualizações do episódio
      */
     public Episode(int episodeNumber, String episodeName, Series series, int totalViews) {
         this.episodeNumber = episodeNumber;
