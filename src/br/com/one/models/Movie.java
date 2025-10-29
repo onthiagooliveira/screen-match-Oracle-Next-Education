@@ -38,4 +38,9 @@ public class Movie extends AudioVisualContent implements Rating {
     public int getRating() {
         return (int) (finalAverage() / 2);
     }
+
+    @Override
+    public String toString() {
+        return "Filme: " + getTitleMedia() + " (" + getYearOfRelease() + ")";
+    }
 }
