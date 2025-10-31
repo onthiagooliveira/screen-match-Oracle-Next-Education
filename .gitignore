@@ -1,31 +1,63 @@
-### IntelliJ IDEA ###
+################################################################################
+# Projeto Java – Arquivos e Pastas Ignorados
+# -------------------------------------------------------------------------------
+# Este arquivo define o que não deve ser versionado no Git.
+# Inclui arquivos temporários de IDEs, build, cache e variáveis sensíveis.
+################################################################################
+
+
+########################################
+# IntelliJ IDEA
+########################################
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.kotlin
-.metadata
+.kotlin/
+.metadata/
 
-### Eclipse ###
-.apt_generated
+
+########################################
+# Variáveis e Credenciais Sensíveis
+########################################
+# Nunca versionar chaves ou URLs que contenham tokens de autenticação.
+# Essas variáveis devem ser armazenadas em um arquivo .env local (não rastreado).
+TMDB_AUTH_URL
+AUTH_TOKEN
+.env
+
+
+########################################
+# Eclipse
+########################################
+.apt_generated/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
+.sts4-cache/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-### NetBeans ###
+
+########################################
+# NetBeans
+########################################
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+
+########################################
+# Visual Studio Code
+########################################
 .vscode/
 
-### Mac OS ###
+
+########################################
+# macOS
+########################################
 .DS_Store

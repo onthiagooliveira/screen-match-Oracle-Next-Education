@@ -1,0 +1,10 @@
+<dependencies>
+    <!-- Outras dependências do projeto -->
+
+    <!-- Biblioteca para leitura de variáveis de ambiente via .env -->
+    <dependency>
+        <groupId>io.github.cdimascio</groupId>
+        <artifactId>java-dotenv</artifactId>
+        <version>5.2.2</version>
+    </dependency>
+</dependencies>

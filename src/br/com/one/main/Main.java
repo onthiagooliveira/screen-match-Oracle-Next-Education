@@ -4,7 +4,9 @@ import br.com.one.calculator.RecommendationFilter;
 import br.com.one.models.Episode;
 import br.com.one.models.Movie;
 import br.com.one.models.Series;
+import br.com.one.services.ConnectTMDB;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -18,22 +20,10 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-
-//        private static void displayMovieData (Movie movie){
-//            movie.displayData();
-//            System.out.printf("Duração: %.2f min\n", movie.getDurationInHours());
-//            System.out.printf("Avaliação média: %.1f\n", movie.finalAverage());
-//            System.out.printf("Número de avaliações: %d\n", movie.getNumberOfReviews());
-//        }
-//
-//        private static void displaySeriesData (Series series){
-//            series.displayData();
-//            System.out.printf("Tempo para maratonar: %.2f min\n", series.getDurationInHours());
-//            System.out.printf("Avaliação média: %.1f\n", series.finalAverage());
-//            System.out.printf("Número de avaliações: %d\n", series.getNumberOfReviews());
-//        }
+        // Realiza a conexão com a API The Movie Database (TMDB)
+        ConnectTMDB.connect();
 
     }
 }

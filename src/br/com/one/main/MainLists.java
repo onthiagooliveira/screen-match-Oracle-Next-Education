@@ -4,9 +4,7 @@ import br.com.one.models.AudioVisualContent;
 import br.com.one.models.Movie;
 import br.com.one.models.Series;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Classe principal da aplicação para demonstrar o uso de listas de conteúdos audiovisuais.
@@ -35,7 +33,7 @@ public class MainLists {
         // =========================
         // Criação da lista principal de conteúdos
         // =========================
-        ArrayList<AudioVisualContent> playList = new ArrayList<>();
+        List<AudioVisualContent> playList = new LinkedList<>();
 
         // =========================
         // Criação dos filmes e séries disponíveis
@@ -106,7 +104,12 @@ public class MainLists {
         // =========================
         // Organizando os conteúdos disponíveis
         // =========================
+
+        // Ordena alfabeticamente (ordem natural, com base no título)
         Collections.sort(playList);
+
+        // Ordena por ano de lançamento (do mais antigo ao mais recente)
+        //playList.sort(Comparator.comparing(AudioVisualContent::getYearOfRelease));
 
         // =========================
         // Exibição dos conteúdos disponíveis
@@ -118,6 +121,7 @@ public class MainLists {
             System.out.println("================================");
             System.out.println("Título: " + item.getTitleMedia());
             System.out.printf("Média de avaliações: %.1f%n", item.finalAverage());
+            System.out.println("Ano: " + item.getYearOfRelease());
 
             if (item instanceof Movie filme) {
                 System.out.println("Tipo: Filme");
